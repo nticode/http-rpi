@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 server_ip = '' # RPi IP ADDRESS
-server_port = 1011
+server_port = 8000
 
 RPi_port = 18
 
@@ -12,7 +12,6 @@ GPIO.setup(RPi_port, GPIO.OUT)
 
 class MyServer(BaseHTTPRequestHandler):
   def do_POST(self):
-    global status
     content_length = int(self.headers['Content-Length'])
     state = self.rfile.read(content_length).decode()
     
