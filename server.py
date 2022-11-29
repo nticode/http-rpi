@@ -14,6 +14,7 @@ GPIO.setup(RPi_port, GPIO.OUT)
 
 class MyServer(BaseHTTPRequestHandler):
   def do_POST(self):
+    global status
     content_length = int(self.headers['Content-Length'])
     state = self.rfile.read(content_length).decode()
     
