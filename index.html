@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Http With RPi</title>
+    </head>
+
+    <body>
+        <button onclick="toggle(true)">on</button>
+        <button onclick="toggle(false)">off</button>
+    </body>
+
+    <script>
+        async function toggle(state) {
+            hostname = '192.168.0.8';
+            port = '8000';
+            let res = await fetch(`http://${hostname}:${port}/`, {method: 'POST', body: JSON.stringify(state), mode: 'no-cors'});
+            if (res.status === 201) {
+                console.log("Led Turned ON");
+            } else if (res.status === 200) {
+                console.log("Led Turned ON");
+            } else if (res.status === 304) {
+                console.log("Led Is Already In That State");
+            }
+        }
+    </script>
+</html>
