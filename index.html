@@ -10,7 +10,7 @@
 
     <script>
         async function toggle(state) {
-            hostname = '192.168.0.8';
+            hostname = '';
             port = '8000';
             let res = await fetch(`http://${hostname}:${port}/`, {method: 'POST', body: JSON.stringify(state), mode: 'no-cors'});
             if (res.status === 201) {
