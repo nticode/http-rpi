@@ -6,7 +6,7 @@ server_port = 1011
 
 RPi_port = 18
 
-status = None
+status = 'none'
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -34,5 +34,5 @@ class MyServer(BaseHTTPRequestHandler):
    self.end_headers()
   
 Server = HTTPServer((server_ip, server_port), MyServer)
-Server.serve_forever()
 print('Server Online')
+Server.serve_forever()
